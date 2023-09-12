@@ -41,6 +41,11 @@ public class SpringIocTest {
         happyComponent2.doWork();
         System.out.println(happyComponent == happyComponent1);
         System.out.println(happyComponent1 == happyComponent2);
+    }
 
+    @Test
+    public void test_04() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-04.xml");
+        context.close();  // 关闭容器 调用JavaBean的destroy方法
     }
 }
