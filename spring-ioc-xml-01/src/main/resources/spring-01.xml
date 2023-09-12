@@ -3,10 +3,27 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- 1.可以使用无参数构造函数实例化的组件-->
-    <bean id="happyComponent" class="org.example.ioc_01.HappyComponent"></bean>
+    <!--
+        1.可以使用无参数构造函数实例化的组件
+            声明两个组件信息 [默认单例模式] 会实例化两个组件信息
+    -->
+    <bean id="happyComponent" class="org.example.ioc_01.HappyComponent"/>
 
-    <bean id="happyComponent2" class="org.example.ioc_01.HappyComponent"></bean>
+    <bean id="happyComponent2" class="org.example.ioc_01.HappyComponent"/>
 
-    <bean id="clientService" class="org.example.ioc_01.ClientService" factory-method="createInstance"></bean>
+    <!--
+        2.静态工厂类
+            factory-method 静态工厂方法
+    -->
+    <bean id="clientService" class="org.example.ioc_01.ClientService" factory-method="createInstance"/>
+
+    <!--
+        3.非静态工厂声明 ioc配置信息
+            3.1 配置工厂类信息
+            3.2 通过指定工厂类的实例方法创建组件信息
+    -->
+    <bean id="defaultServiceLocator" class="org.example.ioc_01.DefaultServiceLocator"/>
+
+    <bean id="clientService2" factory-bean="defaultServiceLocator" factory-method="createClientServiceInstance"/>
+
 </beans>
