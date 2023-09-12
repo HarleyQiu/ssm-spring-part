@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-ioc-xml-01</module>
+        <module>spring-ioc-xml-practice-02</module>
     </modules>
 
     <properties>
@@ -26,11 +27,33 @@
             <artifactId>spring-context</artifactId>
             <version>6.0.6</version>
         </dependency>
+
         <!--junit5测试-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.3.1</version>
+        </dependency>
+
+        <!-- 数据库驱动和连接池-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>
+
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.8</version>
+        </dependency>
+
+        <!-- spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>6.0.6</version>
         </dependency>
     </dependencies>
 
