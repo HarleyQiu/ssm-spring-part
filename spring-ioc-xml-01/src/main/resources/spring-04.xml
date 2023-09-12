@@ -9,4 +9,13 @@
     -->
     <bean id="javaBean" class="org.example.ioc_04.JavaBean" init-method="init" destroy-method="destroy"/>
 
+
+    <!--
+        scope: 作用域。
+            singleton: 单例的。
+            prototype: 多例的。
+    -->
+    <bean id="javaBean2" class="org.example.ioc_04.JavaBean2"/>
+
+    <bean id="javaBean3" class="org.example.ioc_04.JavaBean2" scope="prototype"/>
 </beans>
