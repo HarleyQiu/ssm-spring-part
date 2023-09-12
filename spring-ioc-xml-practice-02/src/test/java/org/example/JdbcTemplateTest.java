@@ -1,6 +1,7 @@
 package org.example;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.example.controller.StudentController;
 import org.example.pojo.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -70,6 +71,14 @@ public class JdbcTemplateTest {
         rows = jdbcTemplate.update(sql, 1001);
         System.out.println("rows = " + rows);
 
+        context.close();
+    }
+
+
+    @Test
+    public void testQueryAll() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-02.xml");
+        context.getBean("studentController", StudentController.class).findAll();
         context.close();
     }
 }
