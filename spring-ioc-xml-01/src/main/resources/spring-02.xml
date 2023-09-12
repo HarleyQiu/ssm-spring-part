@@ -37,7 +37,16 @@
     </bean>
 
 
-
     <!-- 3. 触发set方法进行注入 -->
+    <bean id="movieFinder" class="org.example.ioc_02.MovieFinder"/>
+    <bean id="simpleMovieLister" class="org.example.ioc_02.SimpleMovieLister">
+        <!--
+            name : set方法名称 setMovieFinder -> movieFinder
+            ref : set方法参数值 引用其他bean
+            value : set方法参数值 基本类型
+        -->
+        <property name="movieFinder" ref="movieFinder"/>
+        <property name="movieName" value="张三"/>
+    </bean>
 
 </beans>
