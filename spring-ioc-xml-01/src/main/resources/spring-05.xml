@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        id -> getObject()方法返回的对象的名称
+        class -> factoryBean的标准工厂化类的全类名
+    -->
+    <bean id="javaBean" class="org.example.ioc_05.JavaBeanFactoryBean">
+        <property name="value" value="JavaBeanFactoryBean"/>
+    </bean>
+
+</beans>

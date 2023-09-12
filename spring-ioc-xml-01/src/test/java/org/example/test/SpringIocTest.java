@@ -2,6 +2,7 @@ package org.example.test;
 
 import org.example.ioc_03.HappyComponent;
 import org.example.ioc_04.JavaBean2;
+import org.example.ioc_05.JavaBean;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -57,5 +58,22 @@ public class SpringIocTest {
         System.out.println(bean3 == bean4);  // false 说明是多例的
 
         context.close();  // 关闭容器 调用JavaBean的destroy方法
+    }
+
+    /**
+     * 读取FactoryBean工厂创建配置的组件对象
+     */
+    @Test
+    public void test_05() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-05.xml");
+        JavaBean javaBean = context.getBean("javaBean", JavaBean.class);
+
+        System.out.println("bean = " + javaBean);
+
+        // 获取工厂Bean对象
+        Object bean = context.getBean("&javaBean");// 获取工厂Bean对象
+        System.out.println("bean = " + bean);
+
+        context.close();
     }
 }
