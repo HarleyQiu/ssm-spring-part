@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1.可以使用无参数构造函数实例化的组件-->
+    <bean id="happyComponent" class="org.example.ioc_01.HappyComponent"></bean>
+
+    <bean id="happyComponent2" class="org.example.ioc_01.HappyComponent"></bean>
+
+    <bean id="clientService" class="org.example.ioc_01.ClientService" factory-method="createInstance"></bean>
+</beans>
