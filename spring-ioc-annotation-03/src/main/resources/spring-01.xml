@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        三种配置方式！！！记得注释 仅使用一种生效
+    -->
+
+
+    <!-- 配置自动扫描的包 -->
+    <!-- 1.包要精准,提高性能!
+         2.会扫描指定的包和子包内容
+         3.多个包可以使用,分割 例如: org.example.controller,org.example.service等
+    -->
+    <context:component-scan base-package="org.example.ioc_01"/>
+
+    <!-- 指定不扫描的组件 -->
+    <context:component-scan base-package="org.example.ioc_01">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 指定不扫描的组件 -->
+    <!-- 仅扫描 = 关闭默认规则 + 追加规则 -->
+    <!-- use-default-filters属性：取值false表示关闭默认扫描规则 -->
+    <context:component-scan base-package="org.example.ioc_01" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+</beans>
