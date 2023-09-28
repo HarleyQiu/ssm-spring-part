@@ -26,7 +26,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class MyAdvice {
 
-    @Before("execution(* org..impl.*.*(..))")
+    @Before("org.example.pointcut.MyPointcut.myPc()")
     public void before(JoinPoint joinPoint) {
         // 获取类的信息
         String simpleName = joinPoint.getTarget().getClass().getSimpleName();
@@ -39,17 +39,17 @@ public class MyAdvice {
 
     }
 
-    @AfterReturning(value = "execution(* org..impl.*.*(..))", returning = "result")
+    @AfterReturning(value = "org.example.pointcut.MyPointcut.myPc()", returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
 
     }
 
-    @AfterThrowing(value = "execution(* org..impl.*.*(..))", throwing = "throwing")
+    @AfterThrowing(value = "org.example.pointcut.MyPointcut.myPc()", throwing = "throwing")
     public void afterThrowing(JoinPoint joinPoint, Throwable throwing) {
 
     }
 
-    @After("execution(* org..impl.*.*(..))")
+    @After("org.example.pointcut.MyPointcut.myPc()")
     public void after() {
 
     }
