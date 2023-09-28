@@ -14,6 +14,13 @@ import org.springframework.stereotype.Component;
  *  3. 异常的信息 @AfterThrowing
  *      Throwable throwing 异常信息
  *      throwing = "throwing（形参名）"
+ *     </h>
+ * 实战:
+ * 1.查询某包某类下，访问修饰符是公有，返回值是int的全部方法 - execution(public int org..impl.*.*(..))
+ * 2.查询某包下类中第一个参数是String的方法 - execution(* org..impl.*.*(String..))
+ * 3.查询全部包下，无参数的方法！- execution(* *..*.*())
+ * 4.查询com包下，以int参数类型结尾的方法 - execution(* com..*.*(..int))
+ * 5.查询指定包下，Service开头类的私有返回值int的无参数方法 execution(private int org..Service*.*())
  */
 @Component
 @Aspect
